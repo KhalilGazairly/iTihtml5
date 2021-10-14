@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>form</title>
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			section {
+				height: 100vh;
+				display: grid;
+				justify-content: center;
+				align-items: center;
+				background-color: rgb(178, 195, 195);
+			}
+			.form-div {
+				/* background-color: burlywood; */
+				padding: 20% 10px;
+				align-self: center;
+			}
+			button {
+				cursor: pointer;
+				padding: 10px 25px;
+				background-color: rgb(64, 167, 64);
+				color: honeydew;
+				outline: none;
+				border: 1px solid rgb(90 159 33);
+				border-radius: 5px;
+			}
+			.counter {
+				margin: auto;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<section>
+			<div class="form-div" style="margin: auto">
+				<div class="counter">
+					<h2 id="count" class="count"></h2>
+					Number of reload
+				</div>
+				<br /><br />
+				<form action="submit" method="get">
+					<label for="title">Link Title: </label>
+					<input type="text" placeholder="Link title" />
+					<br /><br />
+					<label for="title">Link URL: </label>
+					<input type="url" placeholder="Link url" />
+					<br />
+					<br />
+					<label for="title">Your email: </label>
+					<input type="email" placeholder="Email" />
+					<br />
+					<br />
+					<label for="title">Publish date: </label>
+					<input type="date" placeholder="Publish date" />
+					<br />
+					<br />
+					<button type="submit">Submit</button>
+				</form>
+			</div>
+		</section>
+		<script>
+			var counter = parseInt(localStorage.getItem("pageViews")) || 0;
+			console.log(counter);
+			counter++;
+			localStorage.setItem("pageViews", JSON.stringify(counter));
+			document.getElementById("count").innerText = counter;
+		</script>
+	</body>
+</html>
